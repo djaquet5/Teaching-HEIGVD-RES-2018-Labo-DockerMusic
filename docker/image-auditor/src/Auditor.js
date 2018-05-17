@@ -32,7 +32,7 @@ socket.bind(protocol.port, function(){
     socket.addMembership(protocol.address);
 });
 
-var activeMuscians;
+var activeMuscians = [];
 var musicians = new Map();
 
 socket.on('message', function(msg, source){
