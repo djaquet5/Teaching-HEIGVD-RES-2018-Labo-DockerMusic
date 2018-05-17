@@ -1,5 +1,6 @@
 // We use a standard Node.js module to work with UDP
 var dgram = require('dgram');
+const uuid = require('uuid/v1');
 
 // Let's create a datagram socket. We will use it to send our UDP datagrams
 var socket = dgram.createSocket('udp4');
@@ -28,7 +29,7 @@ function getSound(instrument){
 }
 
 // Create the musician with an unique ID and his sound
-var musician = {uuid: uuidv1(), sound: getSound(process.argv[2])};
+var musician = {uuid: uuid(), sound: getSound(process.argv[2])};
 
 // Send the musician sound every second
 var payload = JSON.stringify(musician);
