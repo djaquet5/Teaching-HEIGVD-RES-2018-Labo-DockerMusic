@@ -65,7 +65,12 @@ setInterval(function(){
 
     musicians.forEach(function (musician, key, map){
         if(musician.active){
-            activeMuscians.add(musician);
+            activeMusicians.push({
+                uuid: musician.uuid,
+                instrument: musician.instrument,
+                activeSince: musician.activeSince
+            });
+
             musician.active = false;
         }
     });
@@ -76,7 +81,8 @@ setInterval(function(){
 
 // TCP Server
 var server = net.createServer(function(socket){
-    var payload = JSON.stringify(activeMusician);
+    var payload = JSON.stringify(activeMusicians);
+    console.log(payload);
     socket.write(payload + "\r\n");
     socket.pipe(socket);
     socket.end();

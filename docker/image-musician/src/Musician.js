@@ -1,6 +1,6 @@
 // We use a standard Node.js module to work with UDP
 var dgram = require('dgram');
-const uuid = require('uuid/v1');
+var uuid = require('uuid/v1');
 
 // Let's create a datagram socket. We will use it to send our UDP datagrams
 var socket = dgram.createSocket('udp4');
